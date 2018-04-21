@@ -1,0 +1,26 @@
+# /etc/conf.d/hitexd: config file for /etc/init.d/hitexd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/hitex/hitex.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/hitexd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/hitexd.pid"
+
+# Where to write hitexd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/hitexd"
+
+# User and group to own hitexd process
+#BITCOIND_USER="hitex"
+#BITCOIND_GROUP="hitex"
+
+# Path to hitexd executable
+#BITCOIND_BIN="/usr/bin/hitexd"
+
+# Nice value to run hitexd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

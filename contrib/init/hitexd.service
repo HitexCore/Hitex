@@ -1,0 +1,26 @@
+[Unit]
+Description=HITEX's distributed currency daemon
+After=network.target
+
+[Service]
+User=hitex
+Group=hitex
+
+Type=forking
+PIDFile=/var/lib/hitexd/hitexd.pid
+
+ExecStart=/usr/bin/hitexd -daemon -pid=/var/lib/hitexd/hitexd.pid \
+          -conf=/etc/hitex/hitex.conf -datadir=/var/lib/hitexd
+
+ExecStop=-/usr/bin/hitex-cli -conf=/etc/hitex/hitex.conf \
+         -datadir=/var/lib/hitexd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
